@@ -82,24 +82,19 @@ class UserProfilesController extends Controller
               $request->validate([
                 'profilepicture' =>  'required|image|mimes:jpeg,png,jpg,gif'
               ]);
-              
+              $user_id = Auth::user()->id;
               $name = $request->profilepicture->hashName(); 
-              $userProfile = UserProfile::find(Auth::user()->id);
+              $data = ([
+                'user_id' => $user_id,
+                'profile_picture' => $name
+              ]);
+
+
+              UserProfile::updateOrCreate(['user_id' => Auth::user()->id], $data);
+              $request->profilepicture->store('/image/profilepictures');
+
+              return redirect()->back(); 
               
-              if($userProfile == null) {
-                $userProfile = new userProfile;
-                $userProfile::create([
-                 'profile_picture' => $name,
-                 'user_id' => Auth::user()->id,
-                ]);
-              } else {
-                $userProfile->profile_picture = $name;
-                $request->profilepicture->store('/image/profilepictures');
-            //third comment
-                $userProfile->save();
-              }
-              
-               
             } 
     }
 
