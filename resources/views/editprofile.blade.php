@@ -41,10 +41,16 @@
                           </div>
 
                           <div class="d-flex justify-content-center" >
-                            <input type="file" name="profilepicture" accept="image/png, image/jpeg, image/jpeg" name="image" />
+                            <input type="file" name="profilepicture"  name="image" class="@error('profilepicture') is-invalid @enderror" />
                             <input type="hidden" name="_method" value="PUT" />
                             <input type="hidden" name="update_type" value="one" />
                           </div>
+
+                          @error('profilepicture')
+                                    <span class="d-flex justify-content-center invalid-feedback p-1" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                          @enderror
 
                           <div class="d-flex justify-content-center">
                             <input type="submit" class="btn btn-sm btn-success " value="submit" />   
