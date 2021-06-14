@@ -95,7 +95,7 @@ class UserProfilesController extends Controller
               } else {
                 $userProfile->profile_picture = $name;
                 $request->profilepicture->store('/image/profilepictures');
-            //second comment
+            //third comment
                 $userProfile->save();
               }
               
