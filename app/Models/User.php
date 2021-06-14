@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-use App\Models\UserProfile;
-
 
 class User extends Authenticatable
 {
@@ -44,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile_details(){
-        return $this->hasOne(UserProfile::class);
+    public function getUserDetails(){
+        return $this->hasOne(UserProfile::class, 'user_id', 'id');
     }
 }

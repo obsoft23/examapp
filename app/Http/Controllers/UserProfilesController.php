@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserProfile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth; 
 
@@ -91,9 +92,14 @@ class UserProfilesController extends Controller
               ]);
               UserProfile::updateOrCreate(['user_id' => Auth::user()->id], $data);
               $request->profilepicture->store('/image/profilepictures');
+              
+              $details = UserProfile::with('user')->get();
+              
 
+              return view('/profile')->with('user_details', $details);
+             
 
-              dd(auth()->user()->profile_details());
+              dd(auth()->user()->getUSerDetails());
               return redirect()->back(); 
               
             } 

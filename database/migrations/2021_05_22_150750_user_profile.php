@@ -15,7 +15,7 @@ class UserProfile extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->index();
+            $table->bigInteger('user_id')->index();
             $table->text('connection')->nullable();
             $table->text('about')->nullable();
             $table->longText('bio')->nullable();
