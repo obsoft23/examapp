@@ -37,9 +37,10 @@ Route::get('/calender', function () {
     return view('calender');
 })->middleware('auth');
 
+<!--
 Route::get('/app', function () {
     return view('layouts.app');
-})->middleware('Authenticated');;
+})->middleware('Authenticated'); 
 
 Route::resource('profile', 'App\Http\Controllers\UserProfilesController');
 
