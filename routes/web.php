@@ -37,9 +37,13 @@ Route::get('/calender', function () {
     return view('calender');
 })->middleware('auth');
 
+
+
+
+/* fixed issue route no longer needed as directed
 Route::get('/app', function () {
     return view('layouts.app');
-})->middleware('Authenticated');;
+})->middleware('Authenticated');;*/
 
 Route::resource('profile', 'App\Http\Controllers\UserProfilesController');
 
