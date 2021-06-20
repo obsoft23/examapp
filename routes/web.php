@@ -37,16 +37,6 @@ Route::get('/calender', function () {
     return view('calender');
 })->middleware('auth');
 
-<<<<<<< HEAD
-
-
-
-/* fixed issue route no longer needed as directed
-Route::get('/app', function () {
-    return view('layouts.app');
-});*/
-
-
 
 Route::resource('profile', 'App\Http\Controllers\UserProfilesController');
 
@@ -54,5 +44,3 @@ Route::resource('profile', 'App\Http\Controllers\UserProfilesController');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('Authenticated');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('Authenticated');

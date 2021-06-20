@@ -21,7 +21,9 @@ class UserProfilesController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $userProfile = UserProfile::find(Auth::user()->id);
+
+        return view('profile', compact('userProfile'));
     }
 
     /**
@@ -90,16 +92,18 @@ class UserProfilesController extends Controller
                 'user_id' => $user_id,
                 'profile_picture' => $name
               ]);
+
+              $request->profilepicture->store(' ');
               UserProfile::updateOrCreate(['user_id' => Auth::user()->id], $data);
-              $request->profilepicture->store('/image/profilepictures');
               
-              $details = UserProfile::with('user')->get();
+              //$details = UserProfile::with('user')->get();
               
 
-              return view('/profile')->with('user_details', $details);
+              //return view('/profile')->with('user_details', $details);
              
 
-              dd(auth()->user()->getUSerDetails());
+              //dd(auth()->user()->getUSerDetails());
+              
               return redirect()->back(); 
               
             } 
