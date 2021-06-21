@@ -66,7 +66,8 @@ class UserProfilesController extends Controller
      */
     public function edit(UserProfile $userProfile)
     {
-         return view('editprofile');
+         $profile_details = UserProfile::find(Auth::user()->id);
+         return view('editprofile', compact('profile_details'));
     }
 
     /**

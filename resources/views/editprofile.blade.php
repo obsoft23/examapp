@@ -37,7 +37,7 @@
                          @csrf
 
                            <div class="d-flex justify-content-center w-100" style="padding: 20px">
-                              <img class="img-circle img-bordered-sm " src="../../dist/img/avatar2.png" alt="User Image" style="width: 200px; height: 200px" name="profile-picture">
+                              <img class="img-circle img-bordered-sm " src="{{ asset('storage/profilepictures/'. $profile_details->profile_picture) }} " alt="User Image" style="width: 200px; height: 200px" name="profile-picture">
                           </div>
 
                           <div class="d-flex justify-content-center" >
