@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//imageupload branch to merge
+// branch - master
 
 Route::get('/layout', function () {
     return view('admin.admin_layout');
