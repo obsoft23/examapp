@@ -93,7 +93,7 @@ class UserProfilesController extends Controller
                 'profile_picture' => $name
               ]);
 
-              $request->profilepicture->store(' ');
+              $request->profilepicture->storeAs('public/profilepictures/', $name);
               UserProfile::updateOrCreate(['user_id' => Auth::user()->id], $data);
               
               //$details = UserProfile::with('user')->get();
