@@ -15,7 +15,7 @@
          
                 <!-- THE CALENDAR -->
                 <div class="d-flex justify-content-center">
-             	   <div id="calendar" style="width: 900px; height: 200px; margin-top: -2.66%"></div>
+             	   <div id="calendar" style="width: 900px; height: 200px; margin-top: -2.7%; margin-left: 10%"></div>
              	</div>
        
     </section>
