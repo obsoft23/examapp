@@ -40,6 +40,7 @@ Route::get('/calender', function () {
 
 
 Route::resource('profile', 'App\Http\Controllers\UserProfilesController');
+Route::resource('questionaire', 'App\Http\Controllers\QuestionaireController');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('Authenticated');
